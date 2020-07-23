@@ -6,10 +6,9 @@ import java.util.Objects;
 public class Pedido {
     
     private Integer id;
-    private String modelo;
-    private String fabricante;
-    private String cor;
-    private Date ano;
+    private String hamburguer;
+    private String batata;
+    private String suco;
 
     public Integer getId() {
         return id;
@@ -19,57 +18,33 @@ public class Pedido {
         this.id = id;
     }
 
-    public String getModelo() {
-        return modelo;
+    public String getHamburguer() {
+        return hamburguer;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public void setHamburguer(String hamburguer) {
+        this.hamburguer = hamburguer;
     }
 
-    public String getFabricante() {
-        return fabricante;
+    public String getBatata() {
+        return batata;
     }
 
-    public void setFabricante(String fabricante) {
-        this.fabricante = fabricante;
+    public void setBatata(String batata) {
+        this.batata = batata;
     }
 
-    public String getCor() {
-        return cor;
+    public String getSuco() {
+        return suco;
     }
 
-    public void setCor(String cor) {
-        this.cor = cor;
+    public void setSuco(String suco) {
+        this.suco = suco;
     }
 
-    public Date getAno() {
-        return ano;
+    public void add(Pedido pedido) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setAno(Date ano) {
-        this.ano = ano;
-    }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.id);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Pedido other = (Pedido) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        return true;
-    }
 }
