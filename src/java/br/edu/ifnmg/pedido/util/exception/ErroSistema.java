@@ -1,4 +1,4 @@
-package br.edu.ifnmg.carros.util.exception;
+package br.edu.ifnmg.pedido.util.exception;
 
 public class ErroSistema extends Exception {
 

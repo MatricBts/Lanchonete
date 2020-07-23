@@ -1,7 +1,7 @@
-package br.edu.ifnmg.carros.bean;
+package br.edu.ifnmg.pedido.bean;
 
-import br.edu.ifnmg.carros.dao.CrudDAO;
-import br.edu.ifnmg.carros.util.exception.ErroSistema;
+import br.edu.ifnmg.pedido.dao.CrudDAO;
+import br.edu.ifnmg.pedido.util.exception.ErroSistema;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

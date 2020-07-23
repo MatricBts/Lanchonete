@@ -1,24 +1,25 @@
-package br.edu.ifnmg.carros.dao;
+package br.edu.ifnmg.pedido.dao;
 
-import br.edu.ifnmg.carros.entidade.Carro;
-import br.edu.ifnmg.carros.util.FabricaConexao;
-import br.edu.ifnmg.carros.util.exception.ErroSistema;
+import br.edu.ifnmg.pedido.uti.FabricaConexao;
+import br.edu.ifnmg.pedido.util.exception.ErroSistema;
+import br.edu.ifnmg.pedido.entidade.Pedido;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 /**
  *
  * @author Danilo Souza Almeida
  */
-public class CarroDAO implements CrudDAO<Carro>{
+public class PedidoDAO implements CrudDAO<Pedido>{
     
-    @Override
-    public void salvar(Carro carro) throws ErroSistema{
+   
+    public void salvar(Pedido carro) throws ErroSistema, SQLException{
         try {
             Connection conexao = FabricaConexao.getConexao();
             PreparedStatement ps;
@@ -31,7 +32,6 @@ public class CarroDAO implements CrudDAO<Carro>{
             ps.setString(1, carro.getModelo());
             ps.setString(2, carro.getFabricante());
             ps.setString(3, carro.getCor());
-            ps.setDate(4, new Date(carro.getAno().getTime()));
             ps.execute();
             FabricaConexao.fecharConexao();
         } catch (SQLException ex) {
@@ -39,8 +39,7 @@ public class CarroDAO implements CrudDAO<Carro>{
         }
     }
     
-    @Override
-    public void deletar(Carro carro) throws ErroSistema{
+    public void deletar(Pedido carro) throws ErroSistema{
         try {
             Connection conexao = FabricaConexao.getConexao();
             PreparedStatement ps  = conexao.prepareStatement("delete from carro where id = ?");
@@ -51,27 +50,41 @@ public class CarroDAO implements CrudDAO<Carro>{
         }
     }
     
+    /**
+     *
+     * @return
+     * @throws ErroSistema
+     */
     @Override
-    public List<Carro> buscar() throws ErroSistema{
+    public List<Pedido> buscar() throws ErroSistema{
         try {
             Connection conexao = FabricaConexao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("select * from carro");
+            PreparedStatement ps = conexao.prepareStatement("select * from pedido");
             ResultSet resultSet = ps.executeQuery();
-            List<Carro> carros = new ArrayList<>();
+            List<Pedido> pedido = new ArrayList<>();
             while(resultSet.next()){
-                Carro carro = new Carro();
+                
+                Pedido carro = new Pedido();
                 carro.setId(resultSet.getInt("id"));
                 carro.setModelo(resultSet.getString("modelo"));
                 carro.setFabricante(resultSet.getString("fabricante"));
                 carro.setCor(resultSet.getString("cor"));
                 carro.setAno(resultSet.getDate("ano"));
-                carros.add(carro);
+                pedido.add((Pedido) pedido);
             }
             FabricaConexao.fecharConexao();
-            return carros;
+            List<Pedido> Pedido = null;
+            return Pedido;
             
         } catch (SQLException ex) {
             throw new ErroSistema("Erro ao buscar os carros!",ex);
         }
     }
+
+    @Override
+    public void salvar(Pedido entidade) throws ErroSistema {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
 }

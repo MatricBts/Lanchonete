@@ -1,6 +1,6 @@
-package br.edu.ifnmg.carros.util;
+package br.edu.ifnmg.pedido.uti;
 
-import br.edu.ifnmg.carros.util.exception.ErroSistema;
+import br.edu.ifnmg.pedido.util.exception.ErroSistema;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

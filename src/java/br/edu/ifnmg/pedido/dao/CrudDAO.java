@@ -1,6 +1,6 @@
-package br.edu.ifnmg.carros.dao;
+package br.edu.ifnmg.pedido.dao;
 
-import br.edu.ifnmg.carros.util.exception.ErroSistema;
+import br.edu.ifnmg.pedido.util.exception.ErroSistema;
 import java.util.List;
 
 public interface CrudDAO<E> {//E representa minha entidade
